@@ -13,6 +13,9 @@ app.use(express.json({ limit: "50kb" }));
 app.use(express.urlencoded({ extended: true, limit: "50kb" }));
 app.use(express.static("public"));
 
+
+if(!process.env.ADMIN_TOKEN) { process.env.ADMIN_TOKEN = crypto.randomUUID(); }
+console.log(`Admin token: ${process.env.ADMIN_TOKEN}`);
 // Basic rate limit for all routes
 app.use(
   rateLimit({
