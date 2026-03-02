@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact Request</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin: 0; background: #0b0f17; color: #e8eefc; }
+    .wrap { max-width: 720px; margin: 0 auto; padding: 32px 16px; }
+    .card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 16px; padding: 20px; }
+    label { display:block; margin: 14px 0 6px; font-weight: 600; }
+    input, textarea { box-sizing: border-box; width: 100%; padding: 12px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.14); background: rgba(0,0,0,0.25); color:#e8eefc; }
+    textarea { min-height: 120px; resize: vertical; }
+    button { margin-top: 16px; padding: 12px 14px; border-radius: 12px; border: 0; font-weight: 700; cursor:pointer; }
+    .btn { background: #5b8cff; color: #08101f; }
+    .note { opacity: 0.85; font-size: 14px; margin-top: 12px; line-height: 1.4; }
+    .ok { margin-top: 14px; padding: 10px 12px; border-radius: 12px; background: rgba(90, 200, 120, 0.15); border: 1px solid rgba(90, 200, 120, 0.35); }
+    .err { margin-top: 14px; padding: 10px 12px; border-radius: 12px; background: rgba(255, 90, 90, 0.15); border: 1px solid rgba(255, 90, 90, 0.35); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Contact Request</h1>
+    <p class="note">
+      If you reached this page, your message came from an unknown number. You can submit a request to contact me below.
+      This form is reviewed manually. Please don't submit sensitive information.
+    </p>
+
+    <div class="card">
+      <form id="f">
+        <label for="name">Your name</label>
+        <input id="name" name="name" autocomplete="name" required minlength="2" maxlength="80" />
+
+        <label for="phone">Your number</label>
+        <input id="phone" name="phone" autocomplete="tel" required minlength="7" maxlength="30" />
+
+        <label for="purpose">Purpose for contacting</label>
+        <textarea id="purpose" name="purpose" required minlength="5" maxlength="500"></textarea>
+
+        <p class="note">
+          By submitting, you confirm you have permission to be contacted at the number provided.
+          Submissions may be logged for abuse prevention.
+        </p>
+
+        <button class="btn" type="submit">Submit request</button>
+        <div id="msg"></div>
+      </form>
+    </div>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

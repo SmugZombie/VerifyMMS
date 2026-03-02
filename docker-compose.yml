@@ -1,0 +1,13 @@
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - NODE_ENV=production
+      # Uncomment and set for admin endpoints: /admin/submissions?token=... and /admin/visits?token=...
+      # - ADMIN_TOKEN=your-secret-token
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
